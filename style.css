@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 :root {
-  --paper: #F4F6FB;
+  --paper: #F7EFEB;
   --card: #FFFFFF;
-  --ink: #14161F;
-  --ink-soft: #4A4E5E;
-  --cobalt: #2A46E8;
-  --marigold: #FFC53D;
-  --line: #D9DEEA;
+  --ink: #741A1A;
+  --ink-soft: #8A6F65;
+  --cobalt: #741A1A;
+  --marigold: #DFC7C9;
+  --line: #C2ADA1;
 
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -39,6 +39,20 @@ body {
   background: var(--paper);
   color: var(--ink);
   line-height: 1.6;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.08;
+  z-index: -1;
+  pointer-events: none;
 }
 
 a {
@@ -163,7 +177,7 @@ a {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(42, 70, 232, 0.28);
+  box-shadow: 0 10px 24px rgba(116, 26, 26, 0.28);
 }
 
 .btn-outline {
@@ -176,24 +190,36 @@ a {
   color: var(--paper);
 }
 
+/* ---------- HERO BADGE (foto estilo polaroid) ---------- */
 .hero-badge {
   position: absolute;
-  top: 70px;
+  top: 55px;
   right: 24px;
-  width: 132px;
-  height: 132px;
+  width: 210px;
+  padding: 14px 14px 34px;
+  background: #fff;
+  box-shadow: 0 18px 34px rgba(116, 26, 26, 0.22);
+  transform: rotate(7deg);
+  transition: transform 0.2s ease;
+}
+
+.hero-badge:hover {
+  transform: rotate(0deg) scale(1.03);
+}
+
+.hero-badge .perfil {
+  width: 100%;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
-  background: var(--ink);
-  color: var(--paper);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  transform: rotate(8deg);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  line-height: 1.4;
-  letter-spacing: 0.02em;
+  overflow: hidden;
+  display: block;
+}
+
+.hero-badge .perfil img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 @media (max-width: 780px) {
@@ -414,7 +440,7 @@ a {
 
 .contact-sub {
   text-align: center;
-  color: #A9AEC2;
+  color: rgba(247, 239, 235, 0.72);
   margin-bottom: 48px;
 }
 
@@ -431,14 +457,14 @@ a {
   flex-direction: column;
   gap: 6px;
   padding: 22px 24px;
-  border: 1px solid #33364A;
+  border: 1px solid rgba(247, 239, 235, 0.22);
   border-radius: 14px;
   transition: border-color 0.15s ease, background 0.15s ease;
 }
 
 .contact-link:hover {
   border-color: var(--marigold);
-  background: #1B1D2A;
+  background: rgba(0, 0, 0, 0.14);
 }
 
 .contact-label {
